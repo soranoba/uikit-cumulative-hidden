@@ -3,15 +3,46 @@
 //  Sample
 //
 //  Created by Hinagiku Soranoba on 2019/12/01.
-//  Copyright © 2019 Hinagiku Soranoba. All rights reserved.
+//  Copyright © 2020 Hinagiku Soranoba. All rights reserved.
 //
 
 import UIKit
 
+@objc protocol ObservableRunnable {
+    @objc dynamic var isRunning: Bool { get }
+}
+
+protocol Runnable: NSObject, ObservableRunnable {
+    func start()
+    func stop()
+}
+
+class CustomRunner: NSObject, Runnable {
+    @objc dynamic var isRunning: Bool = false
+
+    func start() {
+        isRunning = true
+    }
+
+    func stop() {
+        isRunning = false
+    }
+}
+
+private func observeRunner<T: ObservableRunnable & NSObject, Value>(
+    _ object: T, keyPath: KeyPath<T, Value>, options: NSKeyValueObservingOptions = [],
+    changeHandler: @escaping (T, NSKeyValueObservedChange<Value>) -> Void
+) -> NSKeyValueObservation {
+    return object.observe(keyPath, options: options, changeHandler: changeHandler)
+}
+
 class ViewController: UIViewController {
-    @IBOutlet private var segmentedControl: UISegmentedControl!
-    @IBOutlet private var stackView: UIStackView!
-    @IBOutlet private var textView: UITextView!
+
+    private var observations: [NSKeyValueObservation] = []
+    private var runner: Runnable = CustomRunner()
+    @objc private var observableRunner: ObservableRunnable & NSObject {
+        return runner
+    }
 
     init() {
         super.init(nibName: "ViewController", bundle: Bundle(for: type(of: self)))
@@ -23,23 +54,26 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        observations = [
+            observe(\.observableRunner.isRunning, options: [.new]) { (_, changed) in
+                print("1: \(changed.newValue!)")
+            },
+//            observableRunner.observe(\.isRunning, options: [.new]) { (_, changed) in
+//                print("2: \(changed.newValue!)")
+//            },
+            observeRunner(observableRunner, keyPath: \.isRunning, options: [.new]) { (_, changed) in
+                print("3: \(changed.newValue!)")
+            },
+        ]
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        self.didChangeSegmentedIndex(segmentedControl)
-    }
-
-    @IBAction private func didChangeSegmentedIndex(_ sender: UISegmentedControl) {
-        for i in 0..<sender.numberOfSegments {
-            let view = self.stackView.arrangedSubviews[i]
-            let newHidden = (i == sender.selectedSegmentIndex)
-            view.isHidden = newHidden
-            if view.isHidden != newHidden {
-                UIImpactFeedbackGenerator().impactOccurred()
-            }
+    @IBAction private func didTapButton(_: UIButton) {
+        if runner.isRunning {
+            runner.stop()
+        } else {
+            runner.start()
         }
-        self.textView.text = self.stackView.arrangedSubviews.map { "\($0.isHidden)" }.joined(separator: "\n")
     }
 }
 

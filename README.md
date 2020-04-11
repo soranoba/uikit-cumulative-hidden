@@ -1,20 +1,17 @@
-UIView.isHidden sometimes is not boolean
+KVO with Swift Protocol
 =====
 
-This app will occur "impact feedback" when view have different value from set by isHidden.  
-After rotating the device, please try to change the value of segmented control.  
-It often occur "impact feedback".
-
-Currently known conditions are that the view is in StackView and the state break when change value of "isHidden" during animation.  
-(In the app, the state is broken by the rotate animation)
-
+This sample that how to do KVO with Swift Protocol.
 
 ## Environments
 
-- Xcode 11.2.1
-- iOS 13.1
+- Xcode 11.4
+- iOS 13.4
 
 ## References
 
-- https://stackoverflow.com/questions/40001416/swift-disappearing-views-from-a-stackview
-- https://stackoverflow.com/questions/56830523/cant-change-uiview-ishidden-property-after-action-is-called-by-uibarbutton
+- https://stackoverflow.com/questions/47199946/kvobserving-a-protocol-in-swift-4
+
+## Blog Post
+
+- [Japanese](https://soranoba.net/programming/swift-protocol-kvo)
