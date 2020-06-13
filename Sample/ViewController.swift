@@ -60,5 +60,13 @@ class ViewController: UIViewController {
             self.view.setNeedsUpdateConstraints()
         }, completion: nil)
     }
+
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+        }, completion: { _ in
+            self.view.setNeedsUpdateConstraints()
+        })
+    }
 }
 
