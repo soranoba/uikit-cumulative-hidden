@@ -28,13 +28,6 @@ class ViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        if UIApplication.shared.statusBarOrientation.isPortrait {
-            NSLayoutConstraint.activate(portraitConstraints)
-            NSLayoutConstraint.deactivate(landscapeConstraints)
-        } else {
-            NSLayoutConstraint.activate(landscapeConstraints)
-            NSLayoutConstraint.deactivate(portraitConstraints)
-        }
         print("==========")
         print("portraitConstrains: \(portraitConstraints)")
         print("landscapeConstraints: \(landscapeConstraints)")
@@ -47,6 +40,25 @@ class ViewController: UIViewController {
         print("landscapeConstraints: \(landscapeConstraints)")
         print("")
         print("")
+    }
+
+    override func updateViewConstraints() {
+        if UIApplication.shared.statusBarOrientation.isPortrait {
+            NSLayoutConstraint.activate(portraitConstraints)
+            NSLayoutConstraint.deactivate(landscapeConstraints)
+        } else {
+            NSLayoutConstraint.activate(landscapeConstraints)
+            NSLayoutConstraint.deactivate(portraitConstraints)
+        }
+
+        super.updateViewConstraints()
+    }
+
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: { _ in
+            self.view.setNeedsUpdateConstraints()
+        }, completion: nil)
     }
 }
 
