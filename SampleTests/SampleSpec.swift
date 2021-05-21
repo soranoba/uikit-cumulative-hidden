@@ -12,9 +12,15 @@ import Nimble
 
 class SampleSpec: QuickSpec {
     override func spec() {
+        #if __X_FROM_XCODE_BUILD__
+            let isFromXcodeBuild = true
+        #else
+            let isFromXcodeBuild = false
+        #endif
+
         describe("") {
-            it("") {
-                expect(true).to(beTrue())
+            it("", flags: [Filter.pending: isFromXcodeBuild]) {
+                expect(true).to(beFalse())
             }
         }
     }

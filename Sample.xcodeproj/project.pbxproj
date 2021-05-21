@@ -346,6 +346,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D __X_$(FROM_XCODEBUILD)__";
 				PRODUCT_BUNDLE_IDENTIFIER = net.soranoba.SampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -369,6 +370,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) -D __X_$(FROM_XCODEBUILD)__";
 				PRODUCT_BUNDLE_IDENTIFIER = net.soranoba.SampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
