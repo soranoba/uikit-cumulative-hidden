@@ -1,11 +1,11 @@
-Skip specific tests only when running tests from the command line
+Inline expansion maybe breaks code when processing Sequences from Dictionaries.
 =====
 
 ## Environments
 
-- Xcode 12.4
-- iOS 14.4
+- Xcode 12.5
+- iOS 14.5
 
 ## References
 
-- https://stackoverflow.com/questions/16350109/setting-up-user-specific-preprocessor-macros-for-xcode
+- https://bugs.swift.org/browse/SR-14866
