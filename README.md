@@ -7,6 +7,7 @@ This is probably because the types are over-restricted when recreating an instan
   
 The workaround is 
 
+- Explicitly specify the type (`ViewController<MovieLoader2>(loader: MovieLoader2())`)
 - Execute from another class (`makeViewControllerWithMovieLoader2()`)
 - Inherit classes and delete generics (`InheritedViewController(loader: MovieLoader2())`)
 
@@ -15,7 +16,3 @@ The workaround is
 - Xcode 13.3.1
 - iOS 15.4
 - Swift 5.6
-
-## Blog post
-
-- [Japanese](https://soranoba.net/programming/swift5.6-generics-bug)

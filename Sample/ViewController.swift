@@ -43,6 +43,8 @@ class ViewController<LoaderType: Loader>: UIViewController where LoaderType.Item
         // Failed: Cannot convert value of type 'MovieLoader2' to expected argument type 'LoaderType'
         vc = ViewController(loader: MovieLoader2())
         // OK:
+        vc = ViewController<MovieLoader2>(loader: MovieLoader2())
+        // OK:
         vc = makeViewControllerWithMovieLoader2()
         // OK:
         vc = InheritedViewController(loader: MovieLoader2())
