@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.swift_version         = '5'
 
   s.source_files        = "package2/*.swift"
-  s.resource_bundles    = { 'Resources2' => ["package2/*.xcassets"] }
+  s.resource_bundles    = { 'Resources' => ["package2/*.xcassets"] }
 end

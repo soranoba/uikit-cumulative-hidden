@@ -8,7 +8,7 @@ import UIKit
 public extension Bundle {
     static var pkg2ResourceBundle: Bundle {
         let frameworkBundle = Bundle(for: DummyClass.self)
-        guard let resourceURL = frameworkBundle.resourceURL?.appendingPathComponent("Resources2.bundle"),
+        guard let resourceURL = frameworkBundle.resourceURL?.appendingPathComponent("Resources.bundle"),
               let bundle = Bundle(url: resourceURL) else {
             // Using Carthage
             return frameworkBundle
