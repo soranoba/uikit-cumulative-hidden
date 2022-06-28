@@ -1,20 +1,32 @@
 PODS:
   - Nimble (8.1.1)
+  - Package1 (0.1.0)
+  - Package2 (0.1.0)
   - Quick (3.0.0)
 
 DEPENDENCIES:
   - Nimble
+  - Package1 (from `./`)
+  - Package2 (from `./`)
   - Quick
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Nimble
     - Quick
 
+EXTERNAL SOURCES:
+  Package1:
+    :path: "./"
+  Package2:
+    :path: "./"
+
 SPEC CHECKSUMS:
   Nimble: 5f8a2fb6fa343a7242dfdd9d42f7267419d464b2
+  Package1: 6e479c0132fcc62464f6adfe819c942b343b1afc
+  Package2: 19f657aa60260266e63ef3215f217eb0ec82b79a
   Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
 
-PODFILE CHECKSUM: 9bd61f74a1db6548184e267caf7baf565fb58e28
+PODFILE CHECKSUM: 1035009b9bbf52232e10d0db65d6f40dc68411fa
 
 COCOAPODS: 1.10.1

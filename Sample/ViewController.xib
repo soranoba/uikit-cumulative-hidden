@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="Sample" customModuleProvider="target">
             <connections>
+                <outlet property="imageView1" destination="zDQ-St-vqS" id="TZZ-qt-gH0"/>
+                <outlet property="imageView2" destination="9Dy-HP-OXk" id="LuA-iY-9I7"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ZWg-JX-a73"/>
             </connections>
         </placeholder>
@@ -17,8 +19,33 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BNG-55-XV6">
+                    <rect key="frame" x="143" y="319" width="128" height="268"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zDQ-St-vqS">
+                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="128" id="OoE-So-whO"/>
+                                <constraint firstAttribute="height" constant="128" id="amT-Fi-f5M"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Dy-HP-OXk">
+                            <rect key="frame" x="0.0" y="140" width="128" height="128"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="128" id="LBb-TV-dSt"/>
+                                <constraint firstAttribute="height" constant="128" id="Zca-uT-7DU"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                </stackView>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BNG-55-XV6" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="eRU-sJ-UbY"/>
+                <constraint firstItem="BNG-55-XV6" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="pwh-VP-RJd"/>
+            </constraints>
             <point key="canvasLocation" x="133" y="151"/>
         </view>
     </objects>
