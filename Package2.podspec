@@ -12,5 +12,4 @@ Pod::Spec.new do |s|
 
   s.source_files        = "package2/*.swift"
   s.resource_bundles    = { 'Resources' => ["package2/*.xcassets"] }
-  s.pod_target_xcconfig = { 'PRODUCT_BUNDLE_IDENTIFIER' => 'net.soranoba.package2' }
 end
