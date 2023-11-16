@@ -1,11 +1,10 @@
-Skip specific tests only when running tests from the command line
+UIViewController.viewDidAppear(animated:) may be called even if it is not presented.
 =====
+
+Press Open button after launch. The new ViewController is not displayed, but a log that viewDidAppear was called is printed.
 
 ## Environments
 
-- Xcode 12.4
-- iOS 14.4
+- Xcode 15.0
+- iOS 17.0
 
-## References
-
-- https://stackoverflow.com/questions/16350109/setting-up-user-specific-preprocessor-macros-for-xcode
