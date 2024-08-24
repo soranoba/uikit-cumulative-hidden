@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import SwiftUI
+import SampleLib
 
-class ViewController: UIViewController {
+class ViewController: UIHostingController<AnyView> {
 
     init() {
-        super.init(nibName: "ViewController", bundle: Bundle(for: type(of: self)))
+        super.init(rootView: AnyView(Form.Announce {
+            Text("Does it use SwiftUI.Group?")
+        }))
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
